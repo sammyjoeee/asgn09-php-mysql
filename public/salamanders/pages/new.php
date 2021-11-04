@@ -1,11 +1,7 @@
-<?php
+<?php 
 
 require_once('../../private/initialize.php');
 
-if(!isset($_GET['id'])) {
-  redirect_to(url_for('/salamanders/subjects/index.php'));
-}
-$id = $_GET['id'];
 $salamanderName = '';
 $position = '';
 $visible = '';
@@ -19,27 +15,27 @@ if(is_post_request()) {
   $visible = $_POST['visible'] ?? '';
 
   echo "Form parameters<br />";
-  echo "Salamander name: " . $salamanderName . "<br />";
+  echo "Salamander Name: " . $salamanderName . "<br />";
   echo "Position: " . $position . "<br />";
   echo "Visible: " . $visible . "<br />";
 }
 
 ?>
 
-<?php $page_title = 'Edit Subject'; ?>
+<?php $page_title = 'Create Salamander'; ?>
 <?php include(SHARED_PATH . '/salamanderHeader.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/salamanders/subjects/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/salamanders/pages/index.php'); ?>">&laquo; Back to List</a>
 
-  <div class="subject edit">
-    <h1>Edit Salamander</h1>
+  <div class="salamander new">
+    <h1>Create Salamander</h1>
 
-    <form action="<?php echo url_for('/salamanders/subjects/edit.php?id=' . h(u($id))); ?>" method="post">
+    <form action="<?php echo url_for('/salamanders/pages/new.php'); ?>" method="post">
       <dl>
         <dt>Salamander Name</dt>
-        <dd><input type="text" name="salamandersName" value="<?php echo h($salamanderName); ?>" /></dd>
+        <dd><input type="text" name="salamanderName" value="<?php echo h($salamanderName); ?>" /></dd>
       </dl>
       <dl>
         <dt>Position</dt>
@@ -57,7 +53,7 @@ if(is_post_request()) {
         </dd>
       </dl>
       <div id="operations">
-        <input type="submit" value="Edit Subject" />
+        <input type="submit" value="Create Salamander" />
       </div>
     </form>
 
@@ -65,4 +61,4 @@ if(is_post_request()) {
 
 </div>
 
-<?php include(SHARED_PATH . '/salamandersFooter.php'); ?>
+<?php include(SHARED_PATH . '/salamanderFooter.php'); ?>

@@ -2,6 +2,10 @@
 
 require_once('../../private/initialize.php');
 
+if(!isset($_GET['id'])) {
+  redirect_to(url_for('/salamanders/pages/index.php'));
+}
+$id = $_GET['id'];
 $salamanderName = '';
 $position = '';
 $visible = '';
@@ -22,17 +26,17 @@ if(is_post_request()) {
 
 ?>
 
-<?php $page_title = 'Create Page'; ?>
+<?php $page_title = 'Edit Salamander'; ?>
 <?php include(SHARED_PATH . '/salamanderHeader.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/salamanders/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/salamanders/pages/index.php'); ?>">&laquo; Back to List</a>
 
-  <div class="page new">
-    <h1>Create Salamander</h1>
+  <div class="page edit">
+    <h1>Edit Page</h1>
 
-    <form action="<?php echo url_for('/salamanders/new.php'); ?>" method="post">
+    <form action="<?php echo url_for('/salamanders/pages/edit.php?id=' . h(u($id))); ?>" method="post">
       <dl>
         <dt>Salamander Name</dt>
         <dd><input type="text" name="salamanderName" value="<?php echo h($salamanderName); ?>" /></dd>
@@ -53,7 +57,7 @@ if(is_post_request()) {
         </dd>
       </dl>
       <div id="operations">
-        <input type="submit" value="Create Salamander" />
+        <input type="submit" value="Edit Page" />
       </div>
     </form>
 

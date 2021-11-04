@@ -16,7 +16,7 @@
     <h1>Salamanders</h1>
 
     <div class="actions">
-      <a class="action" href="">Create Salamander</a>
+    <a class="action" href="<?php echo url_for('/salamanders/pages/new.php'); ?>">Create New Salamander</a>
     </div>
 
   	<table class="list">
@@ -36,8 +36,8 @@
           <td><?= h($salamander['position']); ?></td>
           <td><?= $salamander['visible'] == 1 ? 'true' : 'false'; ?></td>
     	    <td><?= h($salamander['salamanderName']); ?></td>
-          <td><a class="action" href="<?= url_for('salamanders/show.php?id=' . h(u($salamander['id']))); ?>">View</a></td>
-          <td><a class="action" href="">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for('/salamanders/pages/show.php?id=' . h(u($page['id']))); ?>">View</a></td>
+          <td><a class="action" href="<?php echo url_for('/salamanders/pages/edit.php?id=' . h(u($page['id']))); ?>">Edit</a></td>
           <td><a class="action" href="">Delete</a></td>
     	  </tr>
       <?php } ?>

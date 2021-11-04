@@ -6,6 +6,7 @@
 <div id="content">
   <h1>Main Menu</h1>
   <ul>
+  <li><a href="<?php echo url_for('/salamanders/subjects/index.php'); ?>">Subjects</a></li>
     <li><a href="salamanders">Salamanders</li>
   </ul>
 </div>
